@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 import mongoose  from 'mongoose';
 import MongoStore from 'connect-mongo';
 
-dotenv.config();
+dotenv.config();      
 
 const app = express();
 // MongoDB ga bog'lanish
