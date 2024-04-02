@@ -1,6 +1,12 @@
+import { HomePage  } from "./components"
+
+
 const App = () => {
   return (
-    <div>App</div>
+    <>
+        
+      <HomePage/>
+    </>
   )
 }
 
