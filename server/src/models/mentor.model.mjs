@@ -10,7 +10,7 @@ const MentorSchema = new Schema({
         type: String,
         trim: true,
     },
-    PhoneNumber: {
+    phoneNumber: {
         type: Number,
         trim: true,
         required: true,
