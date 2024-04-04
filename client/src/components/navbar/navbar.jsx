@@ -11,7 +11,8 @@ const Navbar = () =>{
         setDarkMode(dark => !dark)
     }
     return (
-        <div className="flex items-center justify-between pr-4 bg-slate-700 h-[70px] text-white">
+        <div className="col-span-5 flex items-center justify-between bg-slate-700 h-[70px] text-white">
+
             <div className="left flex items-center justify-start gap-8">
 
             <div className="flex items-center justify-center h-full w-[100px] bg-amber-300">

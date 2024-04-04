@@ -1,7 +1,7 @@
 
 const Saidbar = () => {
     return (
-        <div className="w-[300px] h-full shadow-2xl">Saidbar</div>
+        <div className="col-span-1 row-span-9 shadow-2xl ">Saidbar</div>
     )
 }
 export default Saidbar;
