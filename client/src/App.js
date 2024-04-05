@@ -4,8 +4,7 @@ import { HomePage  } from "./components"
 const App = () => {
   return (
     <>
-        
-      <HomePage/>
+        <HomePage/>
     </>
   )
 }
