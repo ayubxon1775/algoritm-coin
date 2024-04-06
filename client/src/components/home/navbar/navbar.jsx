@@ -1,24 +1,26 @@
-import {  User } from "../../assets";
+import {  User } from "../../../assets";
 import { IoIosMenu, IoIosSearch } from "react-icons/io";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { RxMoon } from "react-icons/rx";
-import { useTheme } from "../../helpers/dark-mode";
+import { useTheme } from "../../../helpers/dark-mode";
+import { styles } from "../../../constants/styles";
+
 
 const Navbar = () =>{
-    const [darkMode, toggleDarkMode] = useTheme();
+    const {darkMode, toggleDarkMode }= useTheme();
 
    
     return (
         <div className={ darkMode
-        ? 'col-span-5 px-4 flex items-center justify-between bg-slate-800 h-[60px] text-white border-b border-slate-500 shadow-sm'
-        : 'col-span-5 px-4 flex items-center justify-between bg-white text-slate-700 h[60px]' }>
+        ? `col-span-5 px-4 ${styles.flexStyle} bg-slate-800 h-[60px] text-white border-b border-slate-500 shadow-sm`
+        : `col-span-5 px-4 ${styles.flexStyle} bg-white text-slate-700 h-[60px]` }>
 
-        <div className="left flex items-center justify-start gap-8">
+        <div className={`left ${styles.flexStart} gap-8`}>
             <div className="menu-icon text-2xl cursor-pointer">
                 <IoIosMenu />
                 </div>
 
-                <div className="search flex items-center justify-between gap-2 h-[35px] border rounded-md border-slate-400 ">
+                <div className={`search ${styles.flexStyle} gap-2 h-[35px] border rounded-md border-slate-400`}>
 
                     <input type="text" placeholder="Search..." className="bg-transparent h-full px-2 outline-none"  />
 
@@ -36,7 +38,7 @@ const Navbar = () =>{
                 </div>
 
             {/* user image */}
-            <div className="flex items-center justify-center h-10 w-10">
+            <div className={`${styles.flexCenter} h-10 w-10`}>
                 <img src={User} alt="logo" className=" object-cover w-10 h-10 rounded-full"/>
                 </div>  
             </div>
