@@ -2,7 +2,7 @@ import React from 'react'
 
 const pupilInfo = () => {
   return (
-    <div>pupil Info</div>
+    <div className='pupils col-span-2 bg-white rounded-lg'></div>
   )
 }
 
