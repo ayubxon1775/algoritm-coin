@@ -1,10 +1,15 @@
-import { HomePage  } from "./components"
+import { Routes, Route } from "react-router-dom";
+import { HomePage, Login  } from "./components"
 
 
 const App = () => {
+  const user = true;
+  if(user) return <HomePage/>
   return (
     <>
-        <HomePage/>
+    <Routes>
+      <Route path="/login" element={<Login/>}/>
+    </Routes>
     </>
   )
 }
