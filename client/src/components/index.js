@@ -7,6 +7,7 @@ export { default as AllInformation} from './pages/all-informations/all-informati
 export { default as MyAccount} from './pages/my-account/my-account';
 export { default as UpdateMentor} from './pages/update-mentor/update-mentor';
 export { default as Login } from './pages/auth/login';
+export { default as Webface} from './vizitka/webface'
 
 
 

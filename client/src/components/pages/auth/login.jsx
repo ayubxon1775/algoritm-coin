@@ -32,7 +32,7 @@ const Login = () => {
                             <p>Remember me</p>
                         </div>
                         <button type='button' className='shadow-sm bg-green-500 w-full h-10 rounded-sm text-white font-semibold'>Login</button>
-                        <div className={`${styles.flexCenter} gap-2 hover:inderline cursor-pointer text-slate-600`}><RiLockPasswordFill className='text-2xl'/><p>Forget your password ?</p></div>
+                        <div className={`${styles.flexCenter} gap-2 hover:underline cursor-pointer text-slate-600`}><RiLockPasswordFill className='text-2xl'/><p>Forget your password ?</p></div>
                     </form>
 
                     <div className='flex items-center justify-center gap-4 px-10 mt-5'>
