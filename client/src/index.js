@@ -9,12 +9,14 @@ import { BrowserRouter} from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <ThemeProvider>
-       <App />
-    </ThemeProvider>
-    </BrowserRouter>
-    </React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider>
+         <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
 );
 
 
