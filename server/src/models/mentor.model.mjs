@@ -20,6 +20,10 @@ const MentorSchema = new Schema({
         required: true,
         trim: true
     },
+    status: {
+        type:Schema.Types.String,
+        required:true,
+    }
 }, {timestamps: true})
 
 export const Mentor = model('mentor', MentorSchema)

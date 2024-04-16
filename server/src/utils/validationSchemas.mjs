@@ -14,19 +14,7 @@ export const createValidationSchema = {
             errorMessage: 'Mentor username must be a string'
         }
     },
-    displayName: {
-        isLength: {
-            options: {
-                min: 3,
-                max: 32
-            },
-            errorMessage: 'Mentor display name must be at least 3 characters with a max of 32 characters',
-        },
-        notEmpty: false,
-        isString: {
-            errorMessage: 'Mentor display name must a string'
-        }
-    },
+   
     phoneNumber: {
         notEmpty: true,
         isString: false 
@@ -44,7 +32,13 @@ export const createValidationSchema = {
         isString: {
             errorMessage: "Password mast be at string"
         }
-     }
+     },
+     status:{
+        isString:{
+            errorMessage: 'Mentor username must be a string'
+
+        }
+     },
 }
 
 export const updateValidationSchema = {
@@ -100,5 +94,41 @@ export const loginValidationSchema = {
     password: {
         notEmpty: true,
     }
+}
+
+export const createPupilValidationSchema = {
+    fullInfo: {
+        isString: {
+            errorMessage: "Pupil fullname info must be a string"
+        },
+        notEmpty: {
+            errorMessage: "Pupil fullname info cannot be empty"
+        }
+    },
+    phoneNumber: {
+        isString: {
+            errorMessage: "Phone number must be a string"
+        },
+        notEmpty: {
+            errorMessage: "Phone number cannot be empty"
+        }
+    },
+    coin: {
+        isString: false,
+        
+    },
+    lessonTime: {
+        isString: true,
+        notEmpty: true,
+    },
+    lessonDays: {
+        isString: true,
+        notEmpty: true,
+    },
+    status: {
+        isString: true,
+        notEmpty:true,
+    }
+
 }
 
