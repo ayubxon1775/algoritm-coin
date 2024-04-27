@@ -2,7 +2,7 @@ import { User } from "../../../assets";
 import { IoIosMenu, IoIosSearch } from "react-icons/io";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { RxMoon } from "react-icons/rx";
-import { useTheme } from "../../../helpers/dark-mode";
+import { useTheme } from "../../../helpers/context";
 import { styles } from "../../../constants/styles";
 
 const Navbar = () => {

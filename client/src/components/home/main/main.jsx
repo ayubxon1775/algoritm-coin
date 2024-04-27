@@ -1,4 +1,4 @@
-import { useTheme } from "../../../helpers/dark-mode";
+import { useTheme } from "../../../helpers/context";
 import { Routes, Route} from 'react-router-dom';
 import { AddMentor, AllInformation, MyAccount, UpdateMentor } from '../../';
 
