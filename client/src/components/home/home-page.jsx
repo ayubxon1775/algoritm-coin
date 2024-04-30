@@ -1,4 +1,4 @@
-import { Saidbar, Main, Navbar} from '../'
+import { Saidbar, Main, Navbar, } from '../'
 
 const HomePage = () => {
 
@@ -7,6 +7,7 @@ const HomePage = () => {
             <Saidbar/>
             <Navbar/>
             <Main/>
+            
       </div>
   )
 }

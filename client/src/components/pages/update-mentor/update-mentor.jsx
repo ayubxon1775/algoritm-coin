@@ -1,12 +1,13 @@
 import React from 'react'
-import { Card, Typography, Input,  IconButton,
-  Tooltip, } from "@material-tailwind/react";
+import { Card, Typography, Input,  IconButton, Tooltip,Avatar,Button } from "@material-tailwind/react";
 import { MagnifyingGlassIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useTheme } from '../../../helpers/context';
+import { UpdatePage } from '../../../assets';
  
 const TABLE_HEAD = ["UserName", "Phone Number", "Date", "Edits", "Deleted"];
  
 const UpdateMentor = () => {
+  const mentorInfo = false;
   const { handleSearch} = useTheme();
   return (
     <div className='grid grid-cols-6 grid-rows-10 h-screen gap-4'>
@@ -21,7 +22,30 @@ const UpdateMentor = () => {
       </div>
       </div>
       <div className='col-span-3 row-span-9'><MentorsTable/></div>
-      <div className='col-span-3 row-span-9 border-[1px] border-gray-300'></div>
+      <div className='col-span-3 row-span-6 rounded-lg border-[1px] border-gray-300'>
+        {mentorInfo 
+        ? 
+        <div className='rounded-lg w-full h-full flex items-center justify-start pt-10 flex-col gap-4'>
+          <Avatar src="https://docs.material-tailwind.com/img/face-2.jpg" alt="avatar" size="xxl" />
+        <form className='flex flex-col gap-2'>
+          <div className="w-72 flex flex-col items-center gap-4">
+            <Input label="Fullname" value={'Abdushoxid Bannayev'} color='white'/>
+            <Input label="Phone Number" value={"+99890 122 0000"} color='white'/>
+          </div>
+          <div className="w-72 flex justify-between mt-4">
+            <Button variant="gradient">cancel</Button>
+            <Button color="indigo">save</Button>
+          </div>
+        </form>
+        </div>
+        :
+        <div> 
+        <h2 className='text-white tracking-wide text-xl p-4'>Malumotlarini o'zgartirmoqchi bo'lgan mentorni tanlang</h2>
+        <img src={UpdatePage} alt="update image" className='object-cover w-96 h-90 ml-10'/>
+        </div>
+      }
+      </div>
+
     </div>
   )
 }
@@ -86,5 +110,6 @@ function MentorsTable() {
         </tbody>
       </table>
     </Card>
+
   );
 }

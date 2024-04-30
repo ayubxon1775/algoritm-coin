@@ -1,6 +1,7 @@
 import { useTheme } from "../../../helpers/context";
 import { Routes, Route} from 'react-router-dom';
 import { AddMentor, AllInformation, MyAccount, UpdateMentor } from '../../';
+import { SimpleFooter } from "../footer/footer";
 
 const Main = () => {
   const { darkMode} = useTheme();
@@ -15,6 +16,7 @@ const Main = () => {
         <Route path='/update-mentor' element={<UpdateMentor/>}/>
         <Route path='/my-account' element={<MyAccount/>}/>
       </Routes>
+      <SimpleFooter/>
     </div>
   )
 }
