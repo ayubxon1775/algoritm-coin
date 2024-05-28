@@ -41,4 +41,5 @@ const CarouselCard = () => {
     </Carousel>
   );
 }
-export default memo(CarouselCard);
+
+export default memo(CarouselCard)

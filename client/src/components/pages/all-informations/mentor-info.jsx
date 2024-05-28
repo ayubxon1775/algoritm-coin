@@ -169,4 +169,4 @@ const MentorInfo = () => {
   );
 }
 
-export default memo (MentorInfo);
+export default memo(MentorInfo);

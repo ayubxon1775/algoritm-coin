@@ -127,4 +127,5 @@ const Diagramma = () => {
     </Card>
   );
 }
+
 export default memo(Diagramma)

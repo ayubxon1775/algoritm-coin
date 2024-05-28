@@ -1,13 +1,17 @@
 import React from 'react'
-import { Card, Typography, Input,  IconButton, Tooltip,Avatar,Button } from "@material-tailwind/react";
+import { Card, Typography, Input,  IconButton,
+  Tooltip,Avatar,Button } from "@material-tailwind/react";
 import { MagnifyingGlassIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useTheme } from '../../../helpers/context';
 import { UpdatePage } from '../../../assets';
+
  
 const TABLE_HEAD = ["UserName", "Phone Number", "Date", "Edits", "Deleted"];
  
 const UpdateMentor = () => {
-  const mentorInfo = false;
+
+    const mentorInfo = true;
+
   const { handleSearch} = useTheme();
   return (
     <div className='grid grid-cols-6 grid-rows-10 h-screen gap-4'>
@@ -39,13 +43,14 @@ const UpdateMentor = () => {
         </form>
         </div>
         :
-        <div> 
-        <h2 className='text-white tracking-wide text-xl p-4'>Malumotlarini o'zgartirmoqchi bo'lgan mentorni tanlang</h2>
-        <img src={UpdatePage} alt="update image" className='object-cover w-96 h-90 ml-10'/>
+        <div>
+          <h1 className='text-white tracking-wide text-xl p-6'>Ma'lumotlarni o'zgartirmoqchi bo'lgan Mentorni tanlang</h1>
+        <img src={UpdatePage} alt="update image" className='object-cover w-96 h-96 ml-[100px]'/>
         </div>
       }
       </div>
 
+      
     </div>
   )
 }
@@ -110,6 +115,5 @@ function MentorsTable() {
         </tbody>
       </table>
     </Card>
-
   );
 }

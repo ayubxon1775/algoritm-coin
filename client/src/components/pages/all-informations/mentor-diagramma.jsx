@@ -133,4 +133,5 @@ const MentorDiagramma = () => {
     </Card>
   );
 }
+
 export default memo(MentorDiagramma)

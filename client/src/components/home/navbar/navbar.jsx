@@ -9,6 +9,7 @@ const Navbar = () => {
   
   const { darkMode, handleDarkMode} = useTheme();
 
+  
   return (
     <div className={ darkMode 
       ? `col-span-5 ${styles.flexStyle} px-4  bg-slate-800 h-[60px] text-white` 
@@ -18,17 +19,6 @@ const Navbar = () => {
         <div className="menu-icon text-2xl cursor-pointer">
           <IoIosMenu />
         </div>
-
-        <div className={`search ${styles.flexStyle} gap-2 h-[35px]  border rounded-md border-slate-400`}>
-
-          <input type="text" placeholder="Search..." className="bg-transparent h-full px-2 outline-none"/>
-          
-          <div className="text-xl cursor-pointer p-1 h-full bg-slate-400 rounded-r">
-            <IoIosSearch/>
-          </div>
-
-        </div>
-
       </div>
     
       <div className="right flex items-center justify-around gap-4">

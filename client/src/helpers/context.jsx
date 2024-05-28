@@ -17,16 +17,16 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  const handleDarkMode = useCallback(() => {
+  const handleDarkMode = useCallback (() => {
     setDarkMode(prevMode => !prevMode);
-  }, [darkMode]);
+  },[darkMode]);
 
   
-  const handleSearch = useCallback((e) => {
+  const handleSearch = useCallback( (e) => {
     setTimeout(
       setSearchTerm(e.target.value),500
     )
-  }, [searchTerm]);
+  },[searchTerm]);
 
   const filteredData = mentors.filter((item) =>
     Object.values(item).some(

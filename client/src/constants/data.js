@@ -11,7 +11,7 @@ export const dataMenu = [
   {
     icon: SiHomeassistant,
     title: "ALL Information",
-    link: '/all-information',
+    link: '/all-info',
   },
   {
     icon: MdOutlineGroupAdd,
@@ -28,19 +28,22 @@ export const dataMenu = [
     title: "My Account",
     link: '/my-account',
   },
-]
+  
+];
+
 export const cards = [
   {
     title: "Mentors",
-    icon:FaChalkboardTeacher,
-    count:117
+    icon: FaChalkboardTeacher,
+    count: 115
   },
   {
     title: "Pupils",
     icon: PiStudentBold,
-    count:1256
+    count: 1234
   },
-]
+];
+
 export const categories = [
   {
     title:"Web-dasturlash",
@@ -51,66 +54,52 @@ export const categories = [
     icon: LiaLaptopCodeSolid,
   },
   {
-    title: "Kiber havfsizlik",
-    icon: TbBrandVscode
+    title:"Kiber havfsizlik",
+    icon: TbBrandVscode,
   },
   {
-    title: "Ingliz tili",
-    icon: TbBrandVscode
+    title:"Ingliz tili",
+    icon: TbBrandVscode,
   },
   {
-    title: "Rus tili",
-    icon: TbBrandVscode
+    title:"Rus tili",
+    icon: TbBrandVscode,
   },
   {
-    title: "Matematika",
-    icon: TbBrandVscode
+    title:"Matematika",
+    icon: TbBrandVscode,
   },
-]
-export const mentors =[
+];
+
+export const mentors = [
   {
-    username:'Abdushohid Bannayev',
-    phoneNumber: "+99890 122 0000",
-    createdAt:"04/09/2024"
-  },
-  {
-    username:'Ayubxon Axmatxonov',
-    phoneNumber: "+99891 555 5555",
-    createdAt:"04/09/2024"
+    username:"Abdushoxid Bannayev",
+    phoneNumber:"+99890 122 0000",
+    createdAt:"04/09/2024",
   },
   {
-    username:'Ibrohim Jakbaraliyev',
-    phoneNumber: "+99897 777 7777",
-    createdAt:"04/09/2024"
+    username:"Ayubxon Ahmatxonov",
+    phoneNumber:"+99891 555 5555",
+    createdAt:"04/09/2024",
   },
   {
-    username:'Abdushohid Bannayev',
-    phoneNumber: "+99890 122 0000",
-    createdAt:"04/09/2024"
+    username:"Muhammadali Ismoiljanov",
+    phoneNumber:"+99897 777 7777",
+    createdAt:"04/09/2024",
   },
   {
-    username:'Ayubxon Axmatxonov',
-    phoneNumber: "+99891 555 5555",
-    createdAt:"04/09/2024"
+    username:"Murodjon Abdurahmonov",
+    phoneNumber:"+99890 122 0000",
+    createdAt:"04/09/2024",
   },
   {
-    username:'Ibrohim Jakbaraliyev',
-    phoneNumber: "+99897 777 7777",
-    createdAt:"04/09/2024"
+    username:"Muhammadjon Olimov",
+    phoneNumber:"+99891 555 5555",
+    createdAt:"04/09/2024",
   },
   {
-    username:'Abdushohid Bannayev',
-    phoneNumber: "+99890 122 0000",
-    createdAt:"04/09/2024"
+    username:"Ibrohimjon Jakbaraliyev",
+    phoneNumber:"+99897 777 7777",
+    createdAt:"04/09/2024",
   },
-  {
-    username:'Ayubxon Axmatxonov',
-    phoneNumber: "+99891 555 5555",
-    createdAt:"04/09/2024"
-  },
-  {
-    username:'Ibrohim Jakbaraliyev',
-    phoneNumber: "+99897 777 7777",
-    createdAt:"04/09/2024"
-  },
-]
+];
