@@ -5,8 +5,6 @@ const router = express.Router();
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 router.post('/logout', authController.logout);
-router.get('/users', authController.getAllUsers);
-router.get('/user/:id', authController.getUserID);
-
-router.delete('/users/:id', authController.deleteUser);
+router.get('/users', authController.getAllAdmins);
+router.delete('/users/:id', authController.deleteAdmin);
 module.exports = router;
