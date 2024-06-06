@@ -10,16 +10,31 @@ const Pupil = sequelize.define('Pupil', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    phone: {
+    coin: {
+        type: DataTypes.INTEGER
+    },
+    pupilphone: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
     },
+    parentphone: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+
     role: {
         type: DataTypes.ENUM('mentor', 'admin', 'pupil'),
         defaultValue: 'pupil'
     },
     route: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lessonDay:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    lessonTime: {
         type: DataTypes.STRING,
         allowNull: false,
     }
