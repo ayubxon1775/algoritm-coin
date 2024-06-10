@@ -1,17 +1,38 @@
-const jwt = require('../utils/jwt');
+const jwt = require('jsonwebtoken');
+const Mentor = require('../models/Mentor');
+const Admin = require('../models/Admin');
 
-module.exports = (roles) => {
-  return (req, res, next) => {
+const authenticate = async (req, res, next) => {
+  try {
     const token = req.header('Authorization').replace('Bearer ', '');
-    if (!token) return res.status(401).send('Access denied');
-  
-    try {
-      const decoded = jwt.verifyToken(token);
-      if(!roles.includes(decoded.role)) throw new Error();
-      req.user = decoded;
-      next();
-    } catch (ex) {
-      res.status(400).send('Invalid token');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const teacher = await Mentor.findByPk(decoded.id);
+    const admin = await Admin.findByPk(decoded.id);
+
+
+    if (!teacher && !admin) {
+      throw new Error();
     }
+
+    req.user = teacher || admin;
+    next();
+  } catch (error) {
+    res.status(401).send({ error: 'Please authenticate.' });
   }
 };
+
+const isAdmin = (req, res, next) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).send({ error: 'Access denied.' });
+  }
+  next();
+};
+
+const isTeacher = (req, res, next) => {
+  if (req.user.role !== 'teacher') {
+    return res.status(403).send({ error: 'Access denied.' });
+  }
+  next();
+};
+
+module.exports = { authenticate, isAdmin, isTeacher };

@@ -1,54 +1,43 @@
-const  mentorService = require ('../services/mentorService');
+const Mentor = require('../models/Mentor');
 
-exports.createrMentor = async (req, res) => {
-    const {username,firstname, lastname, phone, route} = req.body;
-    try {
-        const mentor = await mentorService.createrMentor(username, firstname, lastname, phone, route);
-        res.status(200).json({ mentor });
-    }catch (error) {
-        res.status(400).json({ error: error.message});
-    }
+const getAllTeachers = async (req, res) => {
+  const mentors = await Mentor.findAll();
+  res.send(mentors);
 };
 
-exports.getMentor = async (req, res) => {
-    const { id } = req.params; 
-    try{
-        const mentor = await mentorService.getMentor(id);
-        if(!mentor) res.status(404).json({message: "Mentor not found"});
-        res.status(200).json({ mentor });
-    }catch (error) {
-        res.status(400).json({ error: error.message })
-    }
+const getTeacherWithPupils = async (req, res) => {
+  const { id } = req.params;
+  const mentor = await Mentor.findByPk(id, {
+    include: ['pupils'], // Assuming you have a relation defined in the model
+  });
+  res.send(mentor);
 };
 
-exports.updateMentor = async (req, res) => {
-    const {id} = req.params;
-    const {username, firstname, lastname, phone, route} = req.body;
-    try {
-        const findMentor = await mentorService.getMentor(id);
-        if (!findMentor) res.status(404).json ({message: 'mentor not found'});
-
-        findMentor.username = username || findMentor.username;
-        findMentor.firstname = firstname || findMentor.firstname;
-        findMentor.lastname = lastname || findMentor.lastname;
-        findMentor.phone = phone || findMentor.phone;
-        findMentor.route = route || findMentor.route
-
-        await findMentor.save();
-
-        res.status(200).json ({ mentor: findMentor});
-    }catch (error) {
-        res.status(400).json ({ error: error.message });
-    }
+const createMentor = async (req, res) => {
+  const { name, email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 8);
+  const mentor = await Mentor.create({ name, email, password: hashedPassword });
+  res.status(201).send(mentor);
 };
 
-exports.deleteMentor = async ( req, res) => {
-    const {id} = req.params;
-    try {
-        await mentorService.deleteMentor(id);
-        res.status(200).json({message: "Mentor deleted successfully"});
-    }catch (error) {
-        res.status(404).json ({ error: error.message });
-    }
+const updateMentor = async (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+  const mentor = await Mentor.findByPk(id);
 
+  if (!mentor) {
+    return res.status(404).send({ error: 'Mentor not found' });
+  }
+
+  Object.keys(updates).forEach(update => mentor[update] = updates[update]);
+  await mentor.save();
+  res.send(mentor);
 };
+
+const deleteMentor = async (req, res) => {
+  const { id } = req.params;
+  await Mentor.destroy({ where: { id } });
+  res.send({ message: 'Mentor deleted successfully' });
+};
+
+module.exports = { getAllTeachers, getTeacherWithPupils, createMentor, updateMentor, deleteMentor };

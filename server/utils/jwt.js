@@ -1,12 +1,19 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-exports.generateToken = (userId) => {
-  return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
-    expiresIn: '1h',
-  });
+exports.authMiddleware = (req, res, next) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    if (!res.headersSent) {
+      next();  // Faqat javob yuborilmagan bo'lsa next() chaqiriladi
+    }
+  } catch (e) {
+    if (!res.headersSent) {
+      res.status(401).json({ error: 'Iltimos, autentifikatsiyadan o‘ting.' });
+    }
+  }
 };
 
-exports.verifyToken = (token) => {
-  return jwt.verify(token, process.env.JWT_SECRET);
-};
+

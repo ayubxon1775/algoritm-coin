@@ -1,11 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const cookieparser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const sequelize = require('./config/database');
 const authRoutes = require('./routes/authRoutes');
-const mentorRoutes = require ('./routes/mentorRoutes');
-const pupilRoutes = require ('./routes/pupilRoutes')
-
+const mentorRoutes = require('./routes/mentorRoutes');
+const pupilsRoutes = require('./routes/pupilsRoutes');
+const { authenticate } = require('./middlewares/authMiddleware');
 require('dotenv').config();
 
 const app = express();
@@ -16,14 +16,19 @@ if (!process.env.PORT) {
   console.error('PORT environment variable is not set. Defaulting to 5000.');
 }
 
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 app.use(express.json());
-app.use(cors());
-app.use(cookieparser());
+app.use(cookieParser());
 
+app.use(authenticate);
 // routes
 app.use('/api/auth', authRoutes);
-app.use('/api/mentors',mentorRoutes);
-app.use('/api/pupils',pupilRoutes);
+app.use('/api/mentors', mentorRoutes);
+app.use('/api/pupils', pupilsRoutes);
+
 sequelize.sync()
   .then(() => {
     app.listen(PORT, () => {

@@ -3,7 +3,7 @@ const sequelize = require('../config/database');
 const bcrypt = require('bcryptjs');
 
 const Admin = sequelize.define('Admin', {
-  username: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
@@ -18,7 +18,7 @@ const Admin = sequelize.define('Admin', {
     allowNull: false,
   },
   role: {
-    type: DataTypes.ENUM('user', 'admin', 'pupil'),
+    type: DataTypes.ENUM('mentor', 'admin', 'pupil'),
     defaultValue: 'admin',
   },
 }, {
